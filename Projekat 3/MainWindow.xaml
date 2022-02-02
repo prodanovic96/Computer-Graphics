@@ -1,0 +1,47 @@
+﻿<Window x:Class="Projekat_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekat_3"
+        mc:Ignorable="d"
+        Title="RAČUNARSKA GRAFIKA - Projekat 3" Height="700" Width="900" WindowState="Maximized">
+    <DockPanel>
+        <ToolBar Name="MyToolBar" DockPanel.Dock="Top" Height="30">
+            <!--<Button Name ="Hide" BorderBrush="#FF969696" Content="Sakrij sve objekte" Height="40" Width="200" Click="Hide_Click"/> -->
+            <Menu>
+                <MenuItem Height="30" BorderBrush="#FF969696" Width="200" Header="Dodatak 1">
+                    <MenuItem Name="d1o1" Header="Hide objects with 0 to 2 connections" Click="dodatak1_Opcija1"></MenuItem>
+                    <MenuItem Name="d1o2" Header="Hide objects with 3 to 5 connections" Click="dodatak1_Opcija2"></MenuItem>
+                    <MenuItem Name="d1o3" Header="Hide objects with more than 5 connections" Click="dodatak1_Opcija3"></MenuItem>
+                </MenuItem>
+                <MenuItem Height="30" BorderBrush="#FF969696" Width="200" Header="Dodatak 2">
+                    <MenuItem Name="d2o1" Header="Hide lines with resistance from 0 to 1" Click="dodatak2_Opcija1"></MenuItem>
+                    <MenuItem Name="d2o2" Header="Hide lines with resistance from 1 to 2" Click="dodatak2_Opcija2"></MenuItem>
+                    <MenuItem Name="d2o3" Header="Hide lines with resistance greater than 2" Click="dodatak2_Opcija3"></MenuItem>
+                </MenuItem>
+                <MenuItem Height="30" BorderBrush="#FF969696" Width="200" Header="Dodatak 3">
+                    <MenuItem Name="d3o1" Header="Hide active part of the network" Click="dodatak3_Opcija1"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </ToolBar>
+        <Viewport3D x:Name="scena" DockPanel.Dock="Bottom" MouseLeftButtonUp="viewport1_MouseLeftButtonUp" MouseMove="viewport1_MouseMove"
+                    MouseWheel="viewport1_MouseWheel" MouseLeftButtonDown="viewport1_MouseLeftButtonDown" MouseDown="viewport1_MouseDown" MouseUp="viewport1_MouseUp">
+            <Viewport3D.Camera>
+                <PerspectiveCamera Position = "0,0,1500" LookDirection = "0,0,-1" FieldOfView = "65" UpDirection = "0,1,0" >
+                    <PerspectiveCamera.Transform>
+                        <Transform3DGroup>
+                            <ScaleTransform3D x:Name="skaliranje" ScaleX="1" ScaleY="1" ScaleZ="1"/>
+                            <TranslateTransform3D x:Name="translacija" OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="rotate3D" />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                        </Transform3DGroup>
+                    </PerspectiveCamera.Transform>
+                </PerspectiveCamera>
+            </Viewport3D.Camera>
+        </Viewport3D>
+    </DockPanel>
+</Window>
